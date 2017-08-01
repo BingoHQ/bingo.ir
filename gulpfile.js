@@ -1,5 +1,4 @@
 const elixir = require('laravel-elixir');
-require('laravel-elixir-vue-2');
 require('laravel-elixir-pug');
 
 
@@ -41,10 +40,11 @@ elixir(function (mix) {
         }
     );
 
-    mix.sass(
-        [
+    let sass = [
             './src/sass/styles.scss'
-        ],
+    ];
+    mix.sass(
+        sass,
         'public/assets/css/styles.css'
     );
 

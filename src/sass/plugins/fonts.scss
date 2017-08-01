@@ -1,5 +1,7 @@
-@include font-face($font-IranSans, "../fonts/#{$font-IranSans}/#{$font-IranSans}_ultralight", 200, woff);
-@include font-face($font-IranSans, "../fonts/#{$font-IranSans}/#{$font-IranSans}_light", 300, woff);
-
-// @include font-face($font-IranSans, "../fonts/#{$font-IranSans}/#{$font-IranSans}_ultralight", 200, woff2);
-// @include font-face($font-IranSans, "../fonts/#{$font-IranSans}/#{$font-IranSans}_light", 300, woff2);
+@font-face {
+  font-family: $font-IranSans;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/iransans/iransans_ultralight.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/
+  url('../fonts/iransans/iransans_ultralight.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}

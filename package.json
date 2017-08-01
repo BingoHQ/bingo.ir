@@ -27,6 +27,7 @@
     "vueify": "^9.3.0"
   },
   "dependencies": {
+    "flexbox-grid-sass": "^4.1.0",
     "laravel-elixir-browsersync-official": "^1.0.0"
   }
 }
