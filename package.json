@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "flexbox-grid-sass": "^4.1.0",
+    "font-awesome": "^4.7.0",
     "laravel-elixir-browsersync-official": "^1.0.0"
   }
 }
