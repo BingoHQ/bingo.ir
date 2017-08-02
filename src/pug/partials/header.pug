@@ -1,6 +1,6 @@
 // Created by Amin Keshavarz on 7/31/2017.
 
-header(id='container')
+header
     nav
         div(class='menu')
             ul
@@ -26,7 +26,23 @@ header(id='container')
                 h1  بینگو برای تمام کسب کارها
             div(class='des')    کاربر با دیدن متن لورم ایپسوم تصور میکند متنی که در صفحه مشاهده میکند
 
-    div(class='arrow-key' id="scroll-to-content")
-        i(class="fa fa-arrow-right fa-rotate-90")
+    div(id='bingo-intro-slider' data-delay='5000')
+        div(class='slider' data-img='assets/img/img1.jpg')
+        div(class='slider' data-img='assets/img/img2.jpg')
+        div(class='slider' data-img='assets/img/img3.jpg')
+    div(class="footer")
+        div(class='social')
+            span(id='instagram')
+                a(href='#')
+                    i(class='fa fa-instagram')
+            span(id='twitter')
+                a(href='#')
+                    i(class='fa fa-twitter')
+            span(id='linkedin')
+                a(href='#')
+                    i(class='fa fa-linkedin')
 
+        div(class='arrow-key' id="scroll-to-content")
+            i(class="fa fa-arrow-right fa-rotate-90")
 
+        div(class='slider-selector')

@@ -31,14 +31,49 @@ span.bar {
 .margin-top-40 {
   margin-top: 40px;
 }
-header {
-  width: 100%;
-  height: 100vh;
+
+#bingo-intro-slider .slider {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/working-in-thailand.jpg');
   background-position: center top;
+  background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
   margin: 0 auto;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  display: none;
+  z-index: -100;
+  -webkit-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+
+#bingo-intro-slider .slider.active {
+  display: block;
+  animation: fading 0.5s;
+}
+
+.slider-selector {
+  ul {
+    li {
+      float: left;
+      margin-right: 7px;
+      list-style: none;
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 100%;
+      cursor: pointer;
+    }
+    li:hover, li.active {
+      background: $main-color;
+    }
+  }
+}
+header {
+  width: 100%;
+  height: 100vh;
   color: #FFFFFF;
   a, a:hover, a:visited, a:active {
     color: #FFFFFF;
@@ -100,11 +135,10 @@ header {
     }
   }
   main {
+    @include centerer(true, true);
     width: 70%;
-    margin: 150px auto;
     .content {
       width: 400px;
-      margin-top: 35%;
 
       .title {
         span.bar {
@@ -118,24 +152,59 @@ header {
       }
     }
   }
-  .arrow-key {
-    display: inline-block;
-    width: 40px;
-    height: 30px;
-    background: $main-color;
-    color: #fff;
-    position: relative;
-    right: 50%;
-    padding-top: 10px;
-    border-radius: 50%;
-    text-align: center;
-    cursor: pointer;
+  .footer {
+    position: absolute;
+    width: 100%;
+    bottom: 60px;
 
-    .fa {
-      -webkit-animation: downUp 0.45s;
-      animation: downUp 0.45s;
-      -webkit-animation-iteration-count: infinite;
-      animation-iteration-count: infinite;
+    .social {
+      float: right;
+      padding-top: 5px;
+      margin-right: 10%;
+
+      span {
+        padding: 10px;
+        padding-left: 0;
+        color: #d5d5d5;
+        font-size: 20px;
+        a, a:visited {
+          color: #d5d5d5;
+        }
+        a:hover, a:active {
+          color: $main-color;
+        }
+      }
+    }
+
+    .arrow-key {
+      @include centerer(true, false);
+      display: inline-block;
+      width: 40px;
+      height: 30px;
+      background: $main-color;
+      color: #fff;
+      padding-top: 10px;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+
+      .fa {
+        -webkit-animation: downUp 0.45s;
+        animation: downUp 0.45s;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+      }
+    }
+
+    .slider-selector {
+      float: left;
+      padding-top: 5px;
+      margin-left: 10%;
+
+      ul {
+        margin-top: 12px;
+      }
     }
   }
+
 }
