@@ -1,3 +1,6 @@
+img {
+  width: 100%;
+}
 section {
   max-width: 970px;
   margin: 0 auto;
@@ -38,13 +41,62 @@ section {
       width: 100px;
       top: -13px;
       right: 0;
+      margin: inherit;
+    }
+
+    .price {
+      font-weight: bold;
+      margin: 10px 0;
     }
   }
+}
+
+.bingo-btn {
+  display: inline-block;
+  font-family: $font-light;
+  background: $main-color;
+  border: 1px solid transparent;
+  line-height: 2.5;
+  padding: 0 15px 0 5px;
+  border-radius: 50px;
+  height: 40px;
+  color: #fff;
+  text-align: right;
+  cursor: pointer;
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+
+  span {
+    display: inline-block;
+    border-radius: 100%;
+    width: 31px;
+    height: 31px;
+    text-align: center;
+    background-color: #32d8f1;
+    line-height: 35px;
+    margin-right: 30px;
+    margin-top: 4px;
+  }
+}
+
+.bingo-btn:hover {
+  color: #fff;
+  background: #00cbea;
 }
 
 #sec2 {
   background-color: #f5f5f5;
   max-width: inherit;
+
+  .sec-picture {
+    max-height: 530px;
+  }
+}
+
+#sec3 {
+  p {
+    padding-top: 20px;
+  }
 }
 
 .newsletter {
@@ -101,11 +153,21 @@ section {
         text-align: center;
         background-color: #32d8f1;
         line-height: 35px;
+        margin-top: 4px;
       }
     }
 
     button:hover {
       background: #00cbea;
     }
+  }
+}
+
+.panel-preview {
+  margin-top: 40px;
+  background: url('../img/dash-2.svg') repeat;
+  .dashboard {
+    margin: 40px auto 4px;
+    width: 70%;
   }
 }
