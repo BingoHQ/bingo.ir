@@ -6,6 +6,7 @@ branches:
 language: node_js
 node_js:
   - stable
+cache: yarn
 notifications:
   email: false
 script:
