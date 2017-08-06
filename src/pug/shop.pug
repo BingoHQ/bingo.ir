@@ -1,0 +1,53 @@
+extends partials/layout.pug
+block project-info
+    -var pageName = 'صفحه نخست'
+    -var fileName = 'index'
+block content
+    main(class='shop')
+        include partials/products
+
+        section(id='sec1')
+            article
+                div(class='row')
+                    div(class='col col--md-7')
+                        div(class='title')
+                            h4 کوچک و قابل حمل
+                            h3  WisePad 2 plus
+                            span(class='bar')
+                        div(class='description color-gray')
+                            ul
+                                li  سادگی عملکرد
+                                li  قابلیت کار با تلفن های هوشمند اندروید و ios
+                                li  اتصال از طریق بلوتوث
+                                li  دارای پرینتر
+                        div(class='footer')
+                            div(class='price')  قیمت : 250.000 تومان
+                            div(class='btn')
+                                a(href='#', class='bingo-btn') فروشگاه
+                                    span
+                                        i(class='fa fa-arrow-left')
+                    div(class='col col--md-5')
+                        img(src='assets/img/pos1.png' title='' alt'' class='sec-picture')
+
+        section(class='bg-gray')
+            article
+                div(class='row')
+                    div(class='col col--md-12')
+                        div(class='title')
+                            h3 مشخصات فنی WisePad 2 plus
+                            span(class='bar')
+                        div(class='description')
+                            h4  آیتم اول
+                            div   LTE از نوع Cat4 با سرعت دانلود 150 مگابیت بر ثانیه و آپلود 50 مگابیت بر ثانیه
+
+                            h4  آیتم دوم
+                            div   رزولوشن 1080 × 1920 و سرعت 30 فریم بر ثانیه1080
+
+                            h4  آیتم سوم
+                            div
+                                ul
+                                    li  قابلیت ثبت موقعیت جغرافیایی عکس‌ها و فیلم‌ها
+                                    li  قابلیت فوکوس با اشاره روی سوژه
+                                    li  دارای سنسور با رزولوشن 5 مگاپیکسل
+
+
