@@ -1,0 +1,36 @@
+extends partials/sign-layout.pug
+block project-info
+    -var pageName = 'ثبت نام مرحله یک'
+    -var fileName = ' signup'
+block content
+    main(class='sign-in-layout')
+        section(class='sign-up')
+            h3  اطلاعات کسب و کار
+            span(class='bar')
+            div(class='row')
+                div(class='col col--md-6')
+                    div(class='row')
+                        div(class='col col--md-12')
+                            label   دسته بندی کسب و کار
+                            input(type='text')
+                            span(class='validation ok')
+                                i(class='fa fa-check')
+                        div(class='col col--md-12')
+                            label   آدرس محل کار
+                            textarea(rows=5)
+                div(class='col col--md-6')
+                    div(class='row')
+                        div(class='col col--md-12')
+                            label   تلفن همراه
+                            input(type='text')
+                            span(class='validation error')
+                                i(class='fa fa-times')
+
+                        div(class='col col--md-12')
+                            label   تلفن ثابت محل کار
+                            input(type='text')
+
+                        div(class='col col--md-12')
+                            a(href='signup2.html', class='bingo-btn resize') ادامه
+                                span
+                                    i(class='fa fa-arrow-left')

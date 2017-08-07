@@ -1,0 +1,44 @@
+extends partials/sign-layout.pug
+block project-info
+    -var pageName = 'ثبت نام مرحله یک'
+    -var fileName = ' signup'
+block content
+    main(class='sign-in-layout')
+        section(class='sign-up')
+            h3  اطلاعات فردی
+            span(class='bar')
+            div(class='row')
+                div(class='col col--md-6')
+                    div(class='row')
+                        div(class='col col--md-12')
+                            label   نام و نام خانوادگی
+                                input(type='text')
+                                span(class='validation ok')
+                                    i(class='fa fa-check')
+                        div(class='col col--md-12')
+                            label   تصویر کارت ملی
+                                input(type='file' id='file')
+                                label(for='file')
+                                    div(class='input-file-value')
+                                    div(class='btn') ارسال تصویر
+                                        span
+                                            i(class='fa fa-paperclip')
+                div(class='col col--md-6')
+                    div(class='row')
+                        div(class='col col--md-12')
+                            label   نام پدر
+                            input(type='text')
+                            span(class='validation error')
+                                i(class='fa fa-times')
+
+                        div(class='col col--md-12')
+                            label   کدملی
+                            input(type='text')
+
+                        div(class='col col--md-12')
+                            label   تاریخ تولد
+                            input(type='text')
+
+            a(href='signup2.html', class='bingo-btn') ادامه
+                span
+                    i(class='fa fa-arrow-left')
