@@ -13,15 +13,15 @@ html
         block css
             link(rel='stylesheet' type="text/css" href ='assets/css/styles.css?ver=1.0.0')
     body
-        // Header Template
-        include standard-header
-        // ./Header Template
-        // Page Content
-        block content
-        // ./Page Content
-        // Footer Template
-        include footer.pug
-        // ./Footer Template
+        aside(class='slider')
+            include slider
+        aside(class='page')
+            // Header Template
+            include standard-header
+            // ./Header Template
+            // Page Content
+            block content
+            // ./Page Content
         // Page js assets
         block style
             script(src='assets/js/app.js')

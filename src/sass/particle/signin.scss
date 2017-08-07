@@ -1,0 +1,42 @@
+aside.slider {
+  float: right;
+  width: 35%;
+  position: fixed;
+  background: #d58978;
+  top: 0;
+  bottom: 0;
+}
+
+aside.page {
+  float: left;
+  width: 65%;
+
+  header {
+    border-bottom: 1px solid #ebebeb;
+  }
+
+  main.sign-in-layout {
+    margin-top: 15%;
+
+    label {
+      margin-bottom: 15px;
+    }
+    input {
+      text-align: left;
+      width: 280px;
+      display: block;
+      margin: 30px auto;
+      padding: 10px;
+      border: 1px solid #ccc;
+      direction: ltr;
+    }
+    span.bar {
+      width: 300px;
+      position: initial;
+      margin: 15px auto;
+    }
+    .login {
+      text-align: center;
+    }
+  }
+}

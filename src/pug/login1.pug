@@ -1,0 +1,14 @@
+extends partials/sign-layout.pug
+block project-info
+    -var pageName = 'ورود مرحله اول'
+    -var fileName = ' blog'
+block content
+    main(class='sign-in-layout')
+        section(class='login')
+            h3  ورود به بینگو
+            label لطفا شماره موبایل خود را وارد کنید
+            span(class='bar')
+            input(type='text' value='09')
+            a(href='login2.html', class='bingo-btn') ارسال کد
+                span
+                    i(class='fa fa-arrow-left')
