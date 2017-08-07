@@ -1,0 +1,19 @@
+extends partials/blog-layout.pug
+block project-info
+    -var pageName = 'بلاگ'
+    -var fileName = ' blog'
+block content
+    main(class='blog')
+        section(class='search-box')
+            input(class='search' type='text' placeholder='جستجو در مطالب سایت')
+
+        section
+            - for (var x = 0; x < 5; x++)
+            include partials/blog-post-summary
+
+            div(class='paging')
+                ul
+                    li  1
+                    li  2
+                    li  3
+                    li  4

@@ -20,6 +20,8 @@ function scrollToContent() {
  */
 function slider() {
     let slider = document.querySelector("#bingo-intro-slider");
+    if (!slider)
+        return;
     let delayTime = slider.dataset.delay;
     if (!delayTime)
         delayTime = 3000;
@@ -28,8 +30,8 @@ function slider() {
     let ul = document.createElement('ul');
     itemsSelector.appendChild(ul);
     let activeIndex = 0;
-    for (var i = 0; i < items.length; i++) {
-        items[i].setAttribute("style", "background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('" + items[i].dataset.img + "')");
+    for (let i = 0; i < items.length; i++) {
+        items[i].setAttribute("style", "background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('" + items[i].dataset.img + "')");
         let li = document.createElement('li');
         ul.appendChild(li);
     }
@@ -46,8 +48,20 @@ function slider() {
     }, delayTime);
 }
 
+let sliderScrollBtn = document.getElementById("scroll-to-content");
+if (sliderScrollBtn) {
+    sliderScrollBtn.addEventListener("click", function () {
+        scrollToContent();
+    });
+}
 
-document.getElementById("scroll-to-content").addEventListener("click", function () {
-    scrollToContent();
-});
+let relatedContents = document.querySelector(".related-contents .content");
+if (relatedContents) {
+    let imgContainer = document.querySelectorAll(".related-contents .content .img, .related-contents .content .img img");
+    let height = document.querySelector(".related-contents .col").offsetHeight + 'px';
+    for (let i = 0; i < imgContainer.length; i++) {
+        imgContainer[i].setAttribute("style", "height: " + height);
+        console.log(imgContainer[i]);
+    }
+}
 slider();

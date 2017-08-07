@@ -72,14 +72,11 @@ span.bar {
   }
 }
 header {
-  width: 100%;
-  height: 100vh;
-  color: #FFFFFF;
+  color: $main-color;
   a, a:hover, a:visited, a:active {
-    color: #FFFFFF;
+    color: #9e9e9e;
   }
   nav {
-    margin-top: 20px;
     .menu {
       float: right;
 
@@ -134,6 +131,23 @@ header {
       }
     }
   }
+}
+
+header.standard {
+  nav {
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+header.intro {
+  width: 100%;
+  height: 100vh;
+  color: #FFFFFF;
+  a, a:hover, a:visited, a:active {
+    color: #FFFFFF;
+  }
   main {
     @include centerer(true, true);
     width: 70%;
@@ -186,7 +200,6 @@ header {
       padding-top: 10px;
       border-radius: 50%;
       text-align: center;
-      vert-align: bottom;
       cursor: pointer;
 
       .fa {
@@ -207,5 +220,4 @@ header {
       }
     }
   }
-
 }
