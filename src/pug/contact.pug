@@ -2,6 +2,8 @@ extends partials/sign-layout.pug
 block project-info
     -var pageName = 'ارتباط با ما'
     -var fileName = 'contact'
+block js
+    script(src='https://www.google.com/recaptcha/api.js?hl=fa')
 block content
     main(class='contact-layout')
         section(class='contact-info')
