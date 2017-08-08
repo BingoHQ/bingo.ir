@@ -1,0 +1,46 @@
+extends partials/sign-layout.pug
+block project-info
+    -var pageName = 'ارتباط با ما'
+    -var fileName = 'contact'
+block content
+    main(class='contact-layout')
+        section(class='contact-info')
+            div(class='info address')    نشانی: تهران، خیابان میرزای شیرازی، خیابان میرزاحسنی، پلاک 22
+            div(class='info telephone')  تلفن: 8342-021 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp مرکز پشتیبانی: 89362000
+            div(class='info email')      ایمیل: info@teskaco.com
+                div(class='social')
+                    span(id='instagram')
+                        a(href='#')
+                            i(class='fa fa-instagram')
+                    span(id='twitter')
+                        a(href='#')
+                            i(class='fa fa-twitter')
+                    span(id='linkedin')
+                        a(href='#')
+                            i(class='fa fa-linkedin')
+        section(class='contact-form')
+            p(class='text--center') برای تماس مستقیم با تسکا فرم زیر را تکمیل نمایید.<br>     مشخص نمودن موضوع پیام، پاسخگویی را دقیق‌تر و سریع‌تر خواهد نمود
+            div(class='row')
+                div(class='col col--md-6')
+                    label   نام
+                    input(type='text')
+                div(class='col col--md-6')
+                    label   ایمیل
+                    input(type='text')
+                div(class='col col--md-6')
+                    label   شماره موبایل
+                    input(type='text')
+                div(class='col col--md-6')
+                    label   عنوان پیام
+                    input(type='text')
+                div(class='col col--md-12')
+                    label   متن پیام
+                    textarea(rows=5)
+            div(class='row')
+                dic(class='col col--md-6')
+                    div(class="g-recaptcha" data-sitekey="6LceJCwUAAAAACRkdsjJVUzBTxumHOp4AebcGSKK")
+
+                dic(class='col col--md-6')
+                    a(href='login2.html', class='bingo-btn') ارسال کد
+                        span
+                            i(class='fa fa-arrow-left')

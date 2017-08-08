@@ -1,0 +1,17 @@
+div(id='map' style="height: 100vh; width:100%; background-color: grey;")
+
+script
+    | function initMap() {
+    |    var uluru = {lat: 35.728473, lng: 51.4037681};
+    |    var map = new google.maps.Map(document.getElementById('map'), {
+    |        zoom: 17,
+    | center: uluru
+    | });
+    | var marker = new google.maps.Marker({
+    |    position: uluru,
+    |    animation: google.maps.Animation.BOUNCE,
+    |    title: "Bingo.ir",
+    |    map: map
+    | });
+    | }
+script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGeACnKtvESiULBrraQxYQqZx6g1Jo1Ug&callback=initMap")

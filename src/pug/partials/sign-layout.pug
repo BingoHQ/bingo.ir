@@ -11,10 +11,19 @@ html
 
         // Page css assets
         block css
-            link(rel='stylesheet' type="text/css" href ='assets/css/styles.css?ver=1.0.0')
+            link(rel='stylesheet' type="text/css" href ='assets/css/styles.css?ver=1.0.1')
+
+        // Page Js assets
+        block js
+            //
+
     body
-        aside(class='slider')
-            include slider
+        if(fileName == 'contact')
+            aside(class='slider')
+                include map
+        else
+            aside(class='slider')
+                include slider
         aside(class='page')
             // Header Template
             include standard-header
@@ -23,5 +32,5 @@ html
             block content
             // ./Page Content
         // Page js assets
-        block style
+        block footer
             script(src='assets/js/app.js')

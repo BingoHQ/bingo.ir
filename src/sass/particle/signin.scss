@@ -48,6 +48,22 @@ aside.slider {
   bottom: 0;
 }
 
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 80%;
+  float: right;
+  display: block;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  width: 90%;
+}
 aside.page {
   float: left;
   width: 65%;
@@ -146,6 +162,52 @@ aside.page {
         }
       }
     }
+  }
 
+  main.contact-layout {
+    margin: 50px auto;
+    width: 80%;
+    font-weight: lighter;
+
+    .contact-info {
+      border-bottom: 1px solid #eee;
+      padding-bottom: 30px;
+
+      .info {
+        padding: 10px 45px 10px 10px;
+        background-size: 30px !important;
+        font-weight: lighter;
+      }
+      .info.address {
+        background: url('../img/location-icon.jpg') no-repeat 100%
+      }
+      .info.telephone {
+        background: url('../img/phone-icon.jpg') no-repeat 100%;
+      }
+      .info.email {
+        background: url('../img/mail-icon.jpg') no-repeat 100%;
+      }
+      .social {
+        color: #eee;
+        float: left;
+        font-size: 25px;
+        a, a:visited {
+          color: #c7c7c7;
+        }
+        a:hover, a:active {
+          color: $main-color;
+        }
+        span {
+          padding: 5px;
+        }
+      }
+    }
+    .contact-form {
+      .bingo-btn {
+        float: left;
+        margin-left: 38px;
+        margin-top: 15px;
+      }
+    }
   }
 }
