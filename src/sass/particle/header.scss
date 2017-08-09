@@ -1,5 +1,5 @@
 html, body {
-  font-family: $font-light;
+  font-family: $font-Persian-num;
   text-align: right;
   margin: 0;
   direction: rtl;
@@ -14,6 +14,9 @@ a:hover, a:active {
   color: $main-color;
 }
 
+.english-num {
+  font-family: $font-light;
+}
 span.bar {
   width: 65px;
   height: 3px;
@@ -33,7 +36,7 @@ span.bar {
 }
 
 #bingo-intro-slider .slider {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/working-in-thailand.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/img1.jpg');
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -148,22 +151,20 @@ header.intro {
   a, a:hover, a:visited, a:active {
     color: #FFFFFF;
   }
-  main {
+  .slider-content {
     @include centerer(true, true);
     width: 70%;
-    .content {
-      width: 400px;
-
-      .title {
-        span.bar {
-          width: 65px;
-          height: 3px;
-          top: 19px;
-          right: -5px;
-        }
-      }
-      .des {
-      }
+    span.bar {
+      width: 65px;
+      height: 3px;
+      top: 35px;
+      right: -5px;
+    }
+    h4 {
+      font-size: 30px;
+    }
+    p {
+      font-size: 20px;
     }
   }
   .footer {

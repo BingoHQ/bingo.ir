@@ -26,7 +26,9 @@ $version: '0.0.1';
 
 // Road: Typography
 $font-IranSans: "iransans";
+$font-IranSans-Persian-num: 'iransans-per-num';
 $font-light: $font-IranSans, Helvetica, Geneva, Verdana, sans-serif;
+$font-Persian-num: $font-IranSans-Persian-num, iransans, Helvetica, Geneva, Verdana, sans-serif;
 
 // Colors
 $main-color: #00b8d4;

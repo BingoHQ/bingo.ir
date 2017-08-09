@@ -43,7 +43,7 @@ aside.slider {
   float: right;
   width: 35%;
   position: fixed;
-  background: #d58978;
+  background: #000000;
   top: 0;
   bottom: 0;
 }
@@ -90,6 +90,7 @@ aside.page {
         margin: 15px auto;
       }
       input, textarea {
+        float: none;
         text-align: left;
         width: 280px;
         display: block;
