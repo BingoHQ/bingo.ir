@@ -26,7 +26,7 @@ $product = wc_get_product();
     <article>
         <div class="row">
             <div class="col col--md-7">
-                <div class="title"><h4>کوچک و قابل حمل</h4>
+                <div class="title"><h4><?= get_the_excerpt() ?></h4>
                     <h3> <?= get_the_title() ?></h3><span class="bar"></span></div>
                 <div class="description color-gray">
                     <?= get_the_content() ?>
@@ -34,8 +34,6 @@ $product = wc_get_product();
                 <div class="footer">
                     <div class="price"> قیمت : <?= $product->get_price_html() ?> </div>
                     <?php woocommerce_template_single_add_to_cart() ?>
-                    <div class="btn"><a class="bingo-btn" href="#">فروشگاه<span><i
-                                        class="fa fa-arrow-left"></i></span></a></div>
                 </div>
             </div>
             <div class="col col--md-5">

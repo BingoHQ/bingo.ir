@@ -15,5 +15,16 @@ function register_my_menu() {
         )
     );
 }
+
+/**
+ * Add SVG capabilities
+ */
+function wpcontent_svg_mime_type($mimes = array())
+{
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['svgz'] = 'image/svg+xml';
+    return $mimes;
+}
 add_action( 'init', 'register_my_menu' );
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+add_filter('upload_mimes', 'wpcontent_svg_mime_type');

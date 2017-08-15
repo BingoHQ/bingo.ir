@@ -1,0 +1,30 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 183 196.5">
+    <defs>
+        <style>.cls-1{font-size:55.96px;fill:#e0e0e0;font-family:Montserrat-Bold,
+            Montserrat;font-weight:700;}.cls-2{fill:#fff;}.cls-3,.cls-4,.cls-5,.cls-6{fill:none;}.cls-3,.cls-4,.cls-5{stroke:#bdbdbd;stroke-linecap:round;stroke-linejoin:round;}.cls-3{opacity:0.1;}.cls-4{opacity:0.15;}.cls-5{opacity:0.05;}.cls-6{stroke:#e0e0e0;stroke-miterlimit:10;}.cls-7{fill:#eee;}
+        </style>
+    </defs>
+    <title>Bingo</title>
+    <text class="cls-1" transform="translate(128.82 42.6)">2</text>
+    <circle class="cls-2" cx="91.45" cy="105.25" r="87.11"/>
+    <circle class="cls-3" cx="90.66" cy="105.25" r="69.06"/>
+    <path class="cls-4" d="M77.79,54.75a52.12,52.12,0,1,1-39.24,50.51A52.21,52.21,0,0,1,77.79,54.75"/>
+    <circle class="cls-5" cx="90.66" cy="105.25" r="87.11"/>
+    <line class="cls-6" x1="70.57" y1="91.66" x2="111.16" y2="91.66"/>
+    <rect class="cls-6" x="70.57" y="75.81" width="40.59" height="55.29" rx="5.5" ry="5.5"/>
+    <rect class="cls-6" x="76.04" y="97.09" width="6.99" height="6.99" rx="2" ry="2"/>
+    <rect class="cls-6" x="87.37" y="97.09" width="6.99" height="6.99" rx="2" ry="2"/>
+    <rect class="cls-6" x="98.69" y="97.09" width="6.99" height="6.99" rx="2" ry="2"/>
+    <rect class="cls-6" x="76.04" y="108.04" width="6.99" height="6.99" rx="2" ry="2"/>
+    <rect class="cls-6" x="87.37" y="108.04" width="6.99" height="6.99" rx="2" ry="2"/>
+    <rect class="cls-6" x="98.69" y="108.04" width="6.99" height="18.09" rx="2" ry="2"/>
+    <rect class="cls-6" x="76.04" y="119.14" width="6.99" height="6.99" rx="2" ry="2"/>
+    <rect class="cls-6" x="87.37" y="119.14" width="6.99" height="6.99" rx="2" ry="2"/>
+    <path class="cls-6"
+          d="M70.57,80.63h0a0,0,0,0,1,0,0V96.9a0,0,0,0,1,0,0h0a2.36,2.36,0,0,1-2.36-2.36V83A2.36,2.36,0,0,1,70.57,80.63Z"/>
+    <path class="cls-6"
+          d="M113.89,80.63h0a0,0,0,0,1,0,0V96.9a0,0,0,0,1,0,0h0a2.36,2.36,0,0,1-2.36-2.36V83a2.36,2.36,0,0,1,2.36-2.36Z"
+          transform="translate(225.43 177.53) rotate(180)"/>
+    <rect class="cls-7" x="76.04" y="79.98" width="29.64" height="6.96" rx="3.48" ry="3.48"/>
+    <rect class="cls-6" x="76.04" y="79.98" width="29.64" height="6.96" rx="3.48" ry="3.48"/>
+</svg>
