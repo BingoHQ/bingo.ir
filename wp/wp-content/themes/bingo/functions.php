@@ -6,6 +6,8 @@
  * Time: 04:36 PM
  */
 add_theme_support( 'woocommerce' );
+add_theme_support('html5', array('comment-list', 'comment-form', 'gallery'));
+
 function register_my_menu() {
     register_nav_menus(
         array(
@@ -233,6 +235,15 @@ function social_logos_settings()
         </form>
     </div>
     <?php
+}
+
+add_action('wp_ajax_showProduct', 'ajaxShowProduct');
+
+function ajaxShowProduct()
+{
+    $productId = $_POST['pid'];
+    echo do_shortcode('[product_page id="' . $productId . '"]');
+    wp_die();
 }
 
 // This tells WordPress to call the function named "setup_theme_admin_menus"

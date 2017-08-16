@@ -16,7 +16,7 @@ get_header('intro'); ?>
                         <div class="product-image">
                             <?= html_entity_decode(stripslashes(get_option("bingo_theme_p3_img_code"))) ?>
                         </div>
-                        <div class="product-detail"><?= get_option("bingo_theme_p3_title"); ?></div>
+                        <div class="product-detail english-num"><?= get_option("bingo_theme_p3_title"); ?></div>
                     </a>
                 </div>
                 <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
@@ -24,7 +24,7 @@ get_header('intro'); ?>
                         <div class="product-image">
                             <?= html_entity_decode(stripslashes(get_option("bingo_theme_p2_img_code"))) ?>
                         </div>
-                        <div class="product-detail"><?= get_option("bingo_theme_p2_title"); ?></div>
+                        <div class="product-detail english-num"><?= get_option("bingo_theme_p2_title"); ?></div>
                     </a>
                 </div>
                 <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
@@ -32,7 +32,7 @@ get_header('intro'); ?>
                         <div class="product-image">
                             <?= html_entity_decode(stripslashes(get_option("bingo_theme_p1_img_code"))); ?>
                         </div>
-                        <div class="product-detail"><?= get_option("bingo_theme_p1_title"); ?></div>
+                        <div class="product-detail english-num"><?= get_option("bingo_theme_p1_title"); ?></div>
                     </a>
                 </div>
             </div>
@@ -67,7 +67,7 @@ get_header('intro'); ?>
                         <div class="col col--md-7">
 
 
-                            <div class="title"><h3> <?= get_the_title() ?> </h3>
+                            <div class="title english-num"><h3> <?= get_the_title() ?> </h3>
                                 <p><?= get_the_excerpt() ?></p><span class="bar"></span></div>
                             <div class="description">
                                 <?= get_the_content() ?>

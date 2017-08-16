@@ -8,7 +8,7 @@
 
 get_header(); ?>
 <main class="blog">
-    <section class="search-box"><input class="search" type="text" placeholder="جستجو در مطالب سایت"></section>
+    <?= get_search_form() ?>
     <section>
         <?php if ( have_posts() ) : ?>
 

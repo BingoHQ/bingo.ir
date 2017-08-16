@@ -4712,7 +4712,7 @@ header.intro .slider-content p {
 header.intro .footer {
   position: absolute;
   width: 100%;
-  bottom: 60px;
+  bottom: 30px;
 }
 
 header.intro .footer .social {
@@ -4884,6 +4884,7 @@ section .products.slide .product-image {
   width: 100%;
   text-align: center;
   margin: 0 auto;
+  height: 190px;
 }
 
 section .products.slide .carousel-wrapper {
@@ -5645,4 +5646,15 @@ aside.page main.contact-layout .contact-form .bingo-btn {
 /*# sourceMappingURL=styles.css.map */
 .products a, .products a:visited {
     color: #00b8d4;
+}
+
+.loading-icon {
+  text-align: center;
+  padding: 100px;
+  display: none;
+}
+
+section .products.slide .carousel-wrapper .carousel .carousel-cell.is-selected {
+  -webkit-transform: initial;
+  transform: initial;
 }

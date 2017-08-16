@@ -31,8 +31,6 @@ get_header( 'intro' ); ?>
 
         if ($pQuery->have_posts()) : ?>
             <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-            <link rel="stylesheet" href="https://unpkg.com/flickity@2.0/dist/flickity.min.css">
-            <script src="https://unpkg.com/flickity@2.0/dist/flickity.pkgd.min.js"></script>
             <section><h3> محصولات بینگو</h3><span class="bar"></span>
                 <article class="products slide">
                     <div class="row margin-top-40">
@@ -47,7 +45,8 @@ get_header( 'intro' ); ?>
                                     $attachmentUrl = wp_get_Attachment_url($attachment_ids[0]);
                                     ?>
                                     <div class="carousel-cell">
-                                        <a href="<?= get_the_permalink() ?>">
+                                        <a href="<?= get_the_permalink() ?>" class="product-item-in-slider"
+                                           rel="<?php the_ID(); ?>">
                                             <div class="product-image">
                                                 <?php if (get_post_mime_type($attachment_ids[0]) == 'image/svg+xml'):
                                                     echo file_get_contents($attachmentUrl);
@@ -55,7 +54,7 @@ get_header( 'intro' ); ?>
                                                     <img src="<?= $attachmentUrl ?>">
                                                 <?php endif; ?>
                                             </div>
-                                            <div class="product-detail"><?= get_the_title() ?></div>
+                                            <div class="product-detail english-num"><?= get_the_title() ?></div>
                                         </a>
                                     </div>
                                 <?php endwhile; ?>
@@ -69,12 +68,38 @@ get_header( 'intro' ); ?>
             var flkty = new Flickity('.carousel');
             flkty.select(1);</script>
 
+        <div class="loading-icon" id="loading-icon">
+            <img src="<?= get_template_directory_uri() ?>/assets/img/loading.gif" style="width: 100px; 100px;">
+        </div>
         <?php while ( have_posts() ) : the_post(); ?>
-
+            <div id="product-data-container">
             <?php wc_get_template_part( 'content', 'single-product' ); ?>
-
+            </div>
         <?php endwhile; // end of the loop. ?>
     </main><!-- ./Page Content--><!-- Footer Template--><!-- Created by Amin Keshavarz on 7/31/2017.-->
+    <script>
+        jQuery("document").ready(function () {
+            jQuery(".product-item-in-slider").click(function (event) {
+                event.preventDefault();
+                console.log("Try to load product as ajax request.");
+                var container = jQuery("#product-data-container");
+                var loader = jQuery("#loading-icon");
+                var wp_ajax_url = "<?= get_home_url() ?>/wp-admin/admin-ajax.php";
+                var data = {
+                    action: 'showProduct',
+                    pid: jQuery(this).attr('rel')
+                };
+                loader.css('display', 'block');
+                container.css('display', 'none');
+                jQuery.post(wp_ajax_url, data, function (content) {
+                    container.html(content);
+                    loader.css('display', 'none');
+                    container.css('display', 'block');
+                    console.log("Success ajax request");
+                });
+            });
+        });
+    </script>
 <?php get_footer('intro');
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

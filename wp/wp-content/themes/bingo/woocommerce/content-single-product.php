@@ -26,7 +26,7 @@ $product = wc_get_product();
     <article>
         <div class="row">
             <div class="col col--md-7">
-                <div class="title"><h4><?= get_the_excerpt() ?></h4>
+                <div class="title english-num"><h4><?= get_the_excerpt() ?></h4>
                     <h3> <?= get_the_title() ?></h3><span class="bar"></span></div>
                 <div class="description color-gray">
                     <?= get_the_content() ?>
@@ -51,7 +51,7 @@ $product = wc_get_product();
     <article>
         <div class="row">
             <div class="col col--md-12">
-                <div class="title"><h3>مشخصات فنی <?= get_the_title() ?></h3><span class="bar"></span></div>
+                <div class="title english-num"><h3>مشخصات فنی <?= get_the_title() ?></h3><span class="bar"></span></div>
                 <div class="description">
                     <?php /** @var WC_Product_Attribute $attribute */
                     foreach ($product->get_attributes() as $attribute) :
