@@ -5643,3 +5643,6 @@ aside.page main.contact-layout .contact-form .bingo-btn {
 }
 
 /*# sourceMappingURL=styles.css.map */
+.products a, .products a:visited {
+    color: #00b8d4;
+}

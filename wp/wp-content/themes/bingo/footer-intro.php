@@ -21,10 +21,14 @@
             <p> منتظر نظـرات شما درباره بینگو هستیم</p>
             <div class="mobile">021-26850588</div>
             <div class="email"> hi@bingo.ir</div>
-            <div class="social"><span id="instagram"><a href="#"><i class="fa fa-instagram"></i></a></span><span
-                        id="twitter"><a href="#"><i class="fa fa-twitter"></i></a></span><span id="linkedin"><a
-                            href="#"><i
-                                class="fa fa-linkedin"></i></a></span></div>
+            <div class="social"><span id="instagram"><a
+                            href="<?= get_option("bingo_theme_social_instagram_link"); ?>"><i
+                                class="fa fa-instagram"></i></a></span><span
+                        id="twitter"><a href="<?= get_option("bingo_theme_social_twitter_link"); ?>"><i
+                                class="fa fa-twitter"></i></a></span><span id="linkedin"><a
+                            href="<?= get_option("bingo_theme_social_linkedin_link"); ?>"><i
+                                class="fa fa-linkedin"></i></a></span>
+            </div>
         </div>
     </div>
 </footer><!-- ./Footer Template-->

@@ -27,8 +27,11 @@
     </nav>
     <?= do_shortcode('[intro-slider-images back-sc=1]') ?>
     <div class="footer">
-        <div class="social"><span id="instagram"><a href="#"><i class="fa fa-instagram"></i></a></span><span
-                    id="twitter"><a href="#"><i class="fa fa-twitter"></i></a></span><span id="linkedin"><a href="#"><i
+        <div class="social"><span id="instagram"><a href="<?= get_option("bingo_theme_social_instagram_link"); ?>"><i
+                            class="fa fa-instagram"></i></a></span><span
+                    id="twitter"><a href="<?= get_option("bingo_theme_social_twitter_link"); ?>"><i
+                            class="fa fa-twitter"></i></a></span><span id="linkedin"><a
+                        href="<?= get_option("bingo_theme_social_linkedin_link"); ?>"><i
                             class="fa fa-linkedin"></i></a></span></div>
         <div class="arrow-key" id="scroll-to-content"><i class="fa fa-arrow-right fa-rotate-90"></i></div>
         <?= do_shortcode('[intro-slider-selectors]') ?>

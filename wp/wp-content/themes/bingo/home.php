@@ -12,22 +12,28 @@ get_header('intro'); ?>
         <article class="products">
             <div class="row margin-top-40">
                 <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
-                    <div class="product-image">
-                        <img src="<?= get_template_directory_uri() ?>/assets/img/wisepad-2-plus.svg">
-                    </div>
-                    <div class="product-detail">WisePad 2 plus</div>
+                    <a href="<?= get_option("bingo_theme_p3_link"); ?>">
+                        <div class="product-image">
+                            <?= html_entity_decode(stripslashes(get_option("bingo_theme_p3_img_code"))) ?>
+                        </div>
+                        <div class="product-detail"><?= get_option("bingo_theme_p3_title"); ?></div>
+                    </a>
                 </div>
                 <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
-                    <div class="product-image">
-                        <img src="<?= get_template_directory_uri() ?>/assets/img/wisepad-2.svg">
-                    </div>
-                    <div class="product-detail">WisePad 2</div>
+                    <a href="<?= get_option("bingo_theme_p2_link"); ?>">
+                        <div class="product-image">
+                            <?= html_entity_decode(stripslashes(get_option("bingo_theme_p2_img_code"))) ?>
+                        </div>
+                        <div class="product-detail"><?= get_option("bingo_theme_p2_title"); ?></div>
+                    </a>
                 </div>
                 <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
-                    <div class="product-image">
-                        <img src="<?= get_template_directory_uri() ?>/assets/img/wisepos.svg">
-                    </div>
-                    <div class="product-detail">WisePOS</div>
+                    <a href="<?= get_option("bingo_theme_p1_link"); ?>">
+                        <div class="product-image">
+                            <?= html_entity_decode(stripslashes(get_option("bingo_theme_p1_img_code"))); ?>
+                        </div>
+                        <div class="product-detail"><?= get_option("bingo_theme_p1_title"); ?></div>
+                    </a>
                 </div>
             </div>
         </article>
