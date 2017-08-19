@@ -66,6 +66,10 @@ function theme_settings_page()
             update_option("bingo_theme_p3_link", $el);
             $el = ($_POST["p3_img_code"]);
             update_option("bingo_theme_p3_img_code", htmlentities($el));
+
+
+            $el = ($_POST["bingo_api_post_ticket_address"]);
+            update_option("bingo_api_post_ticket_address", $el);
         }
 
 
@@ -80,6 +84,8 @@ function theme_settings_page()
         $p3_title = get_option("bingo_theme_p3_title");
         $p3_link = get_option("bingo_theme_p3_link");
         $p3_img_code = html_entity_decode(stripslashes(get_option("bingo_theme_p3_img_code")));
+
+        $bingo_api_post_ticket_address = get_option("bingo_api_post_ticket_address");
         ?>
         <form method="post">
             <p style="text-align: left; padding: 10px;">
@@ -162,6 +168,18 @@ function theme_settings_page()
                     </th>
                     <td>
                         <?php wp_editor($p3_img_code, 'p3_img_code', array('editor_height' => '300px')); ?>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <table class="form-table" style="width: 90%;">
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="p3_title">آدرس api ارسال تیکت:</label>
+                    </th>
+                    <td>
+                        <input type="text" name="bingo_api_post_ticket_address" id="bingo_api_post_ticket_address"
+                               style="width: 100%;" value="<?= $bingo_api_post_ticket_address ?>"/>
                     </td>
                 </tr>
             </table>
@@ -269,6 +287,87 @@ function isWoocommercePage()
     return false;
 
 }
+
+
+// Zarinpal payment actions.
+function afterSuccessPayment()
+{
+
+}
+
+function afterFailedPayment()
+{
+
+}
+
+
+add_action('WC_ZPal_Return_from_Gateway_Success', 'afterSuccessPayment');
+add_action('WC_ZPal_Return_from_Gateway_Failed', 'afterFailedPayment');
+
+// Contact us form handling
+function contactUsForm()
+{
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $title = $_POST['title'];
+    $content = $_POST['content'];
+    $captcha = $_POST['g-recaptcha-response'];
+
+    if (!class_exists('WP_Http')) {
+        include_once(ABSPATH . WPINC . '/class-http.php');
+    }
+
+    $req = new WP_Http();
+    $body = [
+        'secret' => '6LceJCwUAAAAAECvjml-e3FLZXdkSubKs_oUzHJT',
+        'response' => $captcha
+    ];
+    $response = $req->request("https://www.google.com/recaptcha/api/siteverify", [
+        'method' => 'POST',
+        'body' => $body
+    ]);
+    $data = json_decode($response['body'], true);
+    $captchaValidation = isset($data['success']) ? $data['success'] : false;
+    if ($captchaValidation) {
+        $req = new WP_Http();
+        $body = [
+            "title" => $title,
+            "content" => $content,
+            "email" => $email,
+            "name" => $name,
+            "phone" => $phone,
+            "ticket_department_id" => 3,
+            "priority" => 2
+        ];
+        var_dump($body);
+        $response = $req->request(get_option('bingo_api_post_ticket_address'), [
+            'method' => 'POST',
+            'body' => $body
+        ]);
+
+        $data = json_decode($response['body'], true);
+        $code = isset($data['meta']['code']) ? $data['meta']['code'] : 500;
+        $error = isset($data['meta']['message']) ? $data['meta']['message'] : 'ارتباط با سرور قطع شد.';
+        if ($code == 200) {
+            $status = 200;
+            $message = urlencode("پیام شما با موفقیت برای ما ارسال شد. به زودی از طریق ایمیل به آن پاسخ خواهیم داد.");
+        } else {
+            $status = $code;
+            $message = urlencode($error);
+        }
+    } else {
+        $status = 403;
+        $message = urlencode("اطلاعات کپچا صحیح نیست");
+    }
+//    die("contact/?status=$status&message=$message");
+    wp_safe_redirect("contact/?status=$status&message=$message");
+
+}
+
+add_action('admin_post_nopriv_send_ticket', 'contactUsForm');
+add_action('admin_post_send_ticket', 'contactUsForm');
+
 
 add_filter('woocommerce_add_to_cart_redirect', 'my_custom_add_to_cart_redirect');
 

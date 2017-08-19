@@ -5688,3 +5688,8 @@ section .products.slide .carousel-wrapper .carousel .carousel-cell.is-selected {
   width: 200px;
   text-align: center;
 }
+
+.select2-container--default .select2-results > .select2-results__options {
+    float: right;
+    width: 100%;
+}

@@ -30,8 +30,8 @@ if (!$checkout->is_registration_enabled() && $checkout->is_registration_required
     return;
 }
 
+wc_print_notice("بعد از پرداخت موفق اوپراتور های بینگو برای تکیمل اطلاعات تماس خواهند گرفت.", 'notice');
 ?>
-
 <form name="checkout" method="post" class="checkout woocommerce-checkout"
       action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
 
