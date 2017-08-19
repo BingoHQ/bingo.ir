@@ -23,48 +23,50 @@ get_header(); ?>
             endif;
             ?>
         </section>
-        <section class="bg-gray">
-            <article class="related-contents text--center"><h3>مطالب مرتبط</h3><span class="bar"></span>
-                <div class="row">
-                    <?php
-                    $orig_post = $post;
-                    global $post;
-                    $categories = get_the_category($post->ID);
-                    if ($categories) {
-                        $category_ids = array();
-                        foreach ($categories as $individual_category) $category_ids[] = $individual_category->term_id;
-                        $args = array(
-                            'category__in' => $category_ids,
-                            'post__not_in' => array($post->ID),
-                            'posts_per_page' => 2, // Number of related posts that will be shown.
-                            'caller_get_posts' => 1
-                        );
-                        $my_query = new wp_query($args);
-                        if ($my_query->have_posts()) {
-                            while ($my_query->have_posts()) {
-                                $my_query->the_post();
-                                ?>
-                                <div class="col col--md-6">
-                                    <div class="content">
-                                        <div class="img"><a href="<? the_permalink() ?>" rel="bookmark"
-                                                            title="<?php the_title(); ?>"><?php the_post_thumbnail([100, 100]); ?></a>
+        <?php if (!isWoocommercePage()) : ?>
+            <section class="bg-gray">
+                <article class="related-contents text--center"><h3>مطالب مرتبط</h3><span class="bar"></span>
+                    <div class="row">
+                        <?php
+                        $orig_post = $post;
+                        global $post;
+                        $categories = get_the_category($post->ID);
+                        if ($categories) {
+                            $category_ids = array();
+                            foreach ($categories as $individual_category) $category_ids[] = $individual_category->term_id;
+                            $args = array(
+                                'category__in' => $category_ids,
+                                'post__not_in' => array($post->ID),
+                                'posts_per_page' => 2, // Number of related posts that will be shown.
+                                'caller_get_posts' => 1
+                            );
+                            $my_query = new wp_query($args);
+                            if ($my_query->have_posts()) {
+                                while ($my_query->have_posts()) {
+                                    $my_query->the_post();
+                                    ?>
+                                    <div class="col col--md-6">
+                                        <div class="content">
+                                            <div class="img"><a href="<? the_permalink() ?>" rel="bookmark"
+                                                                title="<?php the_title(); ?>"><?php the_post_thumbnail([100, 100]); ?></a>
+                                            </div>
+                                            <div class="text"><span class="date"><?php the_time('d F') ?></span><a
+                                                        style="color: initial;" href="<?php the_permalink() ?>"
+                                                        rel="bookmark" title="<?php the_title(); ?>">
+                                                    <h4><?php the_title(); ?></h4></a>
+                                                <p class="color-gray"><?php the_excerpt() ?></p></div>
                                         </div>
-                                        <div class="text"><span class="date"><?php the_time('d F') ?></span><a
-                                                    style="color: initial;" href="<?php the_permalink() ?>"
-                                                    rel="bookmark" title="<?php the_title(); ?>">
-                                                <h4><?php the_title(); ?></h4></a>
-                                            <p class="color-gray"><?php the_excerpt() ?></p></div>
                                     </div>
-                                </div>
-                                <?php
+                                    <?php
+                                }
                             }
                         }
-                    }
-                    $post = $orig_post;
-                    wp_reset_query(); ?>
-                </div>
-            </article>
-        </section>
+                        $post = $orig_post;
+                        wp_reset_query(); ?>
+                    </div>
+                </article>
+            </section>
+        <?php endif; ?>
     </main>
     </div>
 <?php get_footer(); ?>

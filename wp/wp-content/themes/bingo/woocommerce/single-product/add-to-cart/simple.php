@@ -56,7 +56,7 @@ if ( $product->is_in_stock() ) : ?>
 		?>
 
         <button type="submit" name="add-to-cart" value="<?php echo esc_attr($product->get_id()); ?>"
-                class="bingo-btn single_add_to_cart_button button alt"><?php echo esc_html($product->single_add_to_cart_text()); ?>
+                class="bingo-btn single_add_to_cart_button alt"><?php echo esc_html($product->single_add_to_cart_text()); ?>
             <span><i
                         class="fa fa-arrow-left"></i></span></button>
 

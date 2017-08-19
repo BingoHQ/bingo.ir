@@ -246,10 +246,36 @@ function ajaxShowProduct()
     wp_die();
 }
 
+/**
+ * Redirect users after add to cart.
+ */
+function my_custom_add_to_cart_redirect($url)
+{
+    $url = wc_get_cart_url();
+    return $url;
+}
+
+function isWoocommercePage()
+{
+    if (
+        (wc_get_page_id('cart') == get_the_ID()) or
+        (wc_get_page_id('shop') == get_the_ID()) or
+        (wc_get_page_id('edit_address') == get_the_ID()) or
+        (wc_get_page_id('pay') == get_the_ID()) or
+        (wc_get_page_id('checkout') == get_the_ID()) or
+        (wc_get_page_id('myaccount') == get_the_ID())
+    )
+        return true;
+    return false;
+
+}
+
+add_filter('woocommerce_add_to_cart_redirect', 'my_custom_add_to_cart_redirect');
+
 // This tells WordPress to call the function named "setup_theme_admin_menus"
 // when it's time to create the menu pages.
 add_action("admin_menu", "setup_theme_admin_menus");
 
 add_action( 'init', 'register_my_menu' );
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+//add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 add_filter('upload_mimes', 'wpcontent_svg_mime_type');

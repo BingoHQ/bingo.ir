@@ -5658,3 +5658,33 @@ section .products.slide .carousel-wrapper .carousel .carousel-cell.is-selected {
   -webkit-transform: initial;
   transform: initial;
 }
+
+.woocommerce {
+  width: 100%;
+}
+
+.woocommerce-cart-form__cart-item.cart_item .quantity {
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.woocommerce-cart-form__cart-item.cart_item .quantity input.qty {
+  text-align: center;
+}
+
+.bingo-btn:disabled {
+  background: #a6dce5;
+  color: #000;
+}
+
+#add_payment_method #payment ul.payment_methods li img, .woocommerce-cart #payment ul.payment_methods li img, .woocommerce-checkout #payment ul.payment_methods li img {
+  width: initial;
+}
+
+.woocommerce #payment #place_order, .woocommerce-page #payment #place_order {
+  float: right;
+  width: 200px;
+  text-align: center;
+}
