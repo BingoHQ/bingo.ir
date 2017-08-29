@@ -41,7 +41,12 @@ header.intro nav .logo {
 header a.cart-contents {
     position: absolute;
     left: 0;
-    top: 25%;
     padding: 15px;
     background: rgba(0, 0, 0, 0.46);
+    color: #fff;
+    top: 15%;
+}
+
+header.intro a.cart-contents {
+    top: 25%;
 }
