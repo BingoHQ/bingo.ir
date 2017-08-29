@@ -29,7 +29,7 @@
                 <div class="social"><span id="instagram"><a href="#"><i
                                     class="fa fa-instagram"></i></a></span><span id="twitter"><a href="#"><i
                                     class="fa fa-twitter"></i></a></span><span id="linkedin"><a href="#"><i
-                                    class="fa fa-linkedin"></i></a></span></div>
+                                    class="fa fa-telegram"></i></a></span></div>
             </div>
         </div>
     <?php endif; ?>

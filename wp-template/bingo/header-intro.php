@@ -23,7 +23,7 @@
         <?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'menu' ) ); ?>
         <div class="logo">
             <div class="sign-up-btn"><a href="#" title="ورود"> ورود یا ثبت نام</a></div>
-            <div class="bingo"> Bingo</div>
+            <div class="bingo"><a href="<?= get_home_url() ?>"> Bingo </a></div>
         </div>
     </nav>
     <?= do_shortcode('[intro-slider-images back-sc=1]') ?>
@@ -33,7 +33,7 @@
                     id="twitter"><a href="<?= get_option("bingo_theme_social_twitter_link"); ?>"><i
                             class="fa fa-twitter"></i></a></span><span id="linkedin"><a
                         href="<?= get_option("bingo_theme_social_linkedin_link"); ?>"><i
-                            class="fa fa-linkedin"></i></a></span></div>
+                            class="fa fa-telegram"></i></a></span></div>
         <div class="arrow-key" id="scroll-to-content"><i class="fa fa-arrow-right fa-rotate-90"></i></div>
         <?= do_shortcode('[intro-slider-selectors]') ?>
     </div>

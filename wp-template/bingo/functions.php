@@ -79,7 +79,7 @@ function theme_settings_page()
 
         $p2_title = get_option("bingo_theme_p2_title");
         $p2_link = get_option("bingo_theme_p2_link");
-        $p2_img_code = html_entity_decode(stripslashes(get_option("bingo_theme_p3_img_code")));
+        $p2_img_code = html_entity_decode(stripslashes(get_option("bingo_theme_p2_img_code")));
 
         $p3_title = get_option("bingo_theme_p3_title");
         $p3_link = get_option("bingo_theme_p3_link");

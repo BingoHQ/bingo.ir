@@ -22,7 +22,7 @@
     <nav>
         <?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'menu' ) ); ?>
         <div class="logo">
-            <div class="bingo"> Bingo</div>
+            <a href="<?= get_home_url() ?>"> Bingo </a>
         </div>
     </nav>
 </header><!-- ./Header Template--><!-- Page Content-->

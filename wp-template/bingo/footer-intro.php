@@ -27,7 +27,7 @@
                         id="twitter"><a href="<?= get_option("bingo_theme_social_twitter_link"); ?>"><i
                                 class="fa fa-twitter"></i></a></span><span id="linkedin"><a
                             href="<?= get_option("bingo_theme_social_linkedin_link"); ?>"><i
-                                class="fa fa-linkedin"></i></a></span>
+                                class="fa fa-telegram"></i></a></span>
             </div>
         </div>
     </div>
