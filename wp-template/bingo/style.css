@@ -37,3 +37,11 @@ header.intro nav .logo {
     font-size: inherit;
     font-weight: inherit;
 }
+
+header a.cart-contents {
+    position: absolute;
+    left: 0;
+    top: 25%;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.46);
+}

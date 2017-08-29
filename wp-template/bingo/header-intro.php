@@ -26,6 +26,12 @@
             <div class="bingo"><a href="<?= get_home_url() ?>"> Bingo </a></div>
         </div>
     </nav>
+    <?php global $woocommerce;
+    if ($woocommerce->cart->cart_contents_count) :
+        ?>
+        <a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>"
+           title="نمایش سبد خرید"><?php echo sprintf("%d محصول در سبد خرید وجود دارد", $woocommerce->cart->cart_contents_count); ?></a>
+    <?php endif; ?>
     <?= do_shortcode('[intro-slider-images back-sc=1]') ?>
     <div class="footer">
         <div class="social"><span id="instagram"><a href="<?= get_option("bingo_theme_social_instagram_link"); ?>"><i

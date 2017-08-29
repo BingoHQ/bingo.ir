@@ -365,6 +365,27 @@ function contactUsForm()
 
 }
 
+
+function woocommerce_header_add_to_cart_fragment($fragments)
+{
+    global $woocommerce;
+
+    ob_start();
+
+    ?>
+    <a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>"
+       title="نمایش سبد خرید"><?php echo sprintf("%d محصول در سبد خرید وجود دارد", $woocommerce->cart->cart_contents_count); ?></a>
+    <?php
+
+    $fragments['a.cart-contents'] = ob_get_clean();
+
+    return $fragments;
+
+}
+
+// Ensure cart contents update when products are added to the cart via AJAX (place the following in functions.php)
+add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
+
 add_action('admin_post_nopriv_send_ticket', 'contactUsForm');
 add_action('admin_post_send_ticket', 'contactUsForm');
 
