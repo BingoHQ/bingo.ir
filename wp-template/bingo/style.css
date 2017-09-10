@@ -60,7 +60,7 @@ header a.cart-contents .badge {
 }
 
 header.intro nav .logo {
-    width: 320px;
+    width: inherit;
 }
 
 header.intro a.cart-contents {
