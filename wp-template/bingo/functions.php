@@ -374,7 +374,10 @@ function woocommerce_header_add_to_cart_fragment($fragments)
 
     ?>
     <a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>"
-       title="نمایش سبد خرید"><?php echo sprintf("%d محصول در سبد خرید وجود دارد", $woocommerce->cart->cart_contents_count); ?></a>
+       title="نمایش سبد خرید">
+        <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/shopcart.svg"/>
+        <span class="badge"> <?php echo sprintf("%d", $woocommerce->cart->cart_contents_count); ?></span>
+    </a>
     <?php
 
     $fragments['a.cart-contents'] = ob_get_clean();

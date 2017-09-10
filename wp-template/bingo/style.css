@@ -39,14 +39,30 @@ header.intro nav .logo {
 }
 
 header a.cart-contents {
-    position: absolute;
-    left: 0;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.46);
+    float: right;
+    margin-top: 2px;
+}
+
+header a.cart-contents img {
+    width: 35px;
+}
+
+header a.cart-contents .badge {
+    background: #e12527;
     color: #fff;
-    top: 15%;
+    padding: 1px 8px;
+    position: relative;
+    left: 50px;
+    top: -23px;
+    text-align: center;
+    font-size: 11px;
+    border-radius: 100%;
+}
+
+header.intro nav .logo {
+    width: 320px;
 }
 
 header.intro a.cart-contents {
-    top: 25%;
+    margin-top: -3px;
 }

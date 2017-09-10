@@ -22,13 +22,16 @@
     <nav>
         <?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'menu' ) ); ?>
         <div class="logo">
+            <?php global $woocommerce;
+            if ($woocommerce->cart->cart_contents_count) :
+                ?>
+                <a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>"
+                   title="نمایش سبد خرید">
+                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/img/shopcart.svg"/>
+                    <span class="badge"> <?php echo sprintf("%d", $woocommerce->cart->cart_contents_count); ?></span>
+                </a>
+            <?php endif; ?>
             <a href="<?= get_home_url() ?>"> Bingo </a>
         </div>
     </nav>
-    <?php global $woocommerce;
-    if ($woocommerce->cart->cart_contents_count) :
-        ?>
-        <a class="cart-contents" href="<?php echo $woocommerce->cart->get_cart_url(); ?>"
-           title="نمایش سبد خرید"><?php echo sprintf("%d محصول در سبد خرید وجود دارد", $woocommerce->cart->cart_contents_count); ?></a>
-    <?php endif; ?>
 </header><!-- ./Header Template--><!-- Page Content-->
