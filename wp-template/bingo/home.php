@@ -11,52 +11,71 @@ get_header('intro'); ?>
     <section><h3> محصولات بینگو</h3><span class="bar"></span>
         <article class="products">
             <div class="row margin-top-40">
-                <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
-                    <a href="<?= get_option("bingo_theme_p3_link"); ?>">
-                        <div class="product-image">
-                            <?= html_entity_decode(stripslashes(get_option("bingo_theme_p3_img_code"))) ?>
-                        </div>
-                        <div class="product-detail english-num"><?= get_option("bingo_theme_p3_title"); ?></div>
-                    </a>
-                </div>
-                <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
-                    <a href="<?= get_option("bingo_theme_p2_link"); ?>">
-                        <div class="product-image">
-                            <?= html_entity_decode(stripslashes(get_option("bingo_theme_p2_img_code"))) ?>
-                        </div>
-                        <div class="product-detail english-num"><?= get_option("bingo_theme_p2_title"); ?></div>
-                    </a>
-                </div>
-                <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
-                    <a href="<?= get_option("bingo_theme_p1_link"); ?>">
-                        <div class="product-image">
-                            <?= html_entity_decode(stripslashes(get_option("bingo_theme_p1_img_code"))); ?>
-                        </div>
-                        <div class="product-detail english-num"><?= get_option("bingo_theme_p1_title"); ?></div>
-                    </a>
-                </div>
+                <?php
+                if ($_product = wc_get_product(get_option("bingo_theme_p3_id"))):
+                    ?>
+                    <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
+                        <a href="<?= $_product->get_permalink() ?>" class="product-item-in-slider"
+                           data-id="<?= $_product->get_id() ?>">
+                            <div class="product-image">
+                                <?= html_entity_decode(stripslashes(get_option("bingo_theme_p3_img_code"))) ?>
+                            </div>
+                            <div class="product-detail english-num"><?= $_product->get_title() ?></div>
+                        </a>
+                    </div>
+                    <?php
+                endif;
+                if ($_product = wc_get_product(get_option("bingo_theme_p2_id"))):
+                    ?>
+                    <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
+                        <a href="<?= $_product->get_permalink() ?>" class="product-item-in-slider"
+                           data-id="<?= $_product->get_id() ?>">
+                            <div class="product-image">
+                                <?= html_entity_decode(stripslashes(get_option("bingo_theme_p2_img_code"))) ?>
+                            </div>
+                            <div class="product-detail english-num"><?= $_product->get_title() ?></div>
+                        </a>
+                    </div>
+                    <?php
+                endif;
+                if ($_product = wc_get_product(get_option("bingo_theme_p1_id"))):
+                    ?>
+                    <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
+                        <a href="<?= $_product->get_permalink() ?>" class="product-item-in-slider"
+                           data-id="<?= $_product->get_id() ?>">
+                            <div class="product-image">
+                                <?= html_entity_decode(stripslashes(get_option("bingo_theme_p1_img_code"))); ?>
+                            </div>
+                            <div class="product-detail english-num"><?= $_product->get_title() ?></div>
+                        </a>
+                    </div>
+                <?php endif; ?>
             </div>
         </article>
     </section>
-    <section id="sec1">
-        <article>
-            <?php
-            $args = array(
-                'post_type' => 'product',
-                'tax_query' => array(
-                    array(
-                        'taxonomy' => 'product_visibility',
-                        'field' => 'name',
-                        'terms' => 'featured',
-                    ),
+    <div class="loading-icon" id="loading-icon">
+        <img src="<?= get_template_directory_uri() ?>/assets/img/loading.gif" style="width: 100px; 100px;">
+    </div>
+    <div id="product-data-container">
+        <?php
+        $args = array(
+            'post_type' => 'product',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_visibility',
+                    'field' => 'name',
+                    'terms' => 'featured',
                 ),
-                'posts_per_page' => 1
-            );
+            ),
+            'posts_per_page' => 1
+        );
 
-            $featured_query = new WP_Query($args);
+        $featured_query = new WP_Query($args);
 
-            if ($featured_query->have_posts()) :
-
+        if ($featured_query->have_posts()) : ?>
+            <section id="sec1">
+                <article>
+                    <?php
                 while ($featured_query->have_posts()) :
 
                     $featured_query->the_post();
@@ -90,12 +109,38 @@ get_header('intro'); ?>
 
                 endwhile;
 
-            endif;
-
-            wp_reset_query(); // Remember to reset
             ?>
-        </article>
-    </section>
+                </article>
+            </section>
+        <?php endif;
+
+        wp_reset_query(); // Remember to reset
+        ?>
+    </div>
+    <script>
+        jQuery("document").ready(function () {
+            jQuery(".product-item-in-slider").click(function (event) {
+                event.preventDefault();
+                console.log("Try to load product as ajax request.");
+                var container = jQuery("#product-data-container");
+                var loader = jQuery("#loading-icon");
+                var wp_ajax_url = "<?= get_home_url() ?>/wp-admin/admin-ajax.php";
+                var data = {
+                    action: 'showProduct',
+                    pid: jQuery(this).attr('data-id'),
+                    remove_details: true
+                };
+                loader.css('display', 'block');
+                container.css('display', 'none');
+                jQuery.post(wp_ajax_url, data, function (content) {
+                    container.html(content);
+                    loader.css('display', 'none');
+                    container.css('display', 'block');
+                    console.log("Success ajax request");
+                });
+            });
+        });
+    </script>
     <section class="bg-gray" id="sec2">
         <article>
             <div class="row">
