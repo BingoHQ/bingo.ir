@@ -46,6 +46,8 @@ function theme_settings_page()
         <h2>متغیر های قالب</h2>
         <?php
         if (isset($_POST["update_settings"])) {
+            $el = esc_attr($_POST["p1_id"]);
+            update_option("bingo_theme_p1_id", $el);
             $el = esc_attr($_POST["p1_title"]);
             update_option("bingo_theme_p1_title", $el);
             $el = esc_attr($_POST["p1_link"]);
@@ -53,6 +55,9 @@ function theme_settings_page()
             $el = ($_POST["p1_img_code"]);
             update_option("bingo_theme_p1_img_code", htmlentities($el));
 
+
+            $el = esc_attr($_POST["p2_id"]);
+            update_option("bingo_theme_p2_id", $el);
             $el = esc_attr($_POST["p2_title"]);
             update_option("bingo_theme_p2_title", $el);
             $el = esc_attr($_POST["p2_link"]);
@@ -60,6 +65,9 @@ function theme_settings_page()
             $el = ($_POST["p2_img_code"]);
             update_option("bingo_theme_p2_img_code", htmlentities($el));
 
+
+            $el = esc_attr($_POST["p3_id"]);
+            update_option("bingo_theme_p3_id", $el);
             $el = esc_attr($_POST["p3_title"]);
             update_option("bingo_theme_p3_title", $el);
             $el = esc_attr($_POST["p3_link"]);
@@ -73,14 +81,17 @@ function theme_settings_page()
         }
 
 
+        $p1_id = get_option("bingo_theme_p1_id");
         $p1_title = get_option("bingo_theme_p1_title");
         $p1_link = get_option("bingo_theme_p1_link");
         $p1_img_code = html_entity_decode(stripslashes(get_option("bingo_theme_p1_img_code")));
 
+        $p2_id = get_option("bingo_theme_p2_id");
         $p2_title = get_option("bingo_theme_p2_title");
         $p2_link = get_option("bingo_theme_p2_link");
         $p2_img_code = html_entity_decode(stripslashes(get_option("bingo_theme_p2_img_code")));
 
+        $p3_id = get_option("bingo_theme_p3_id");
         $p3_title = get_option("bingo_theme_p3_title");
         $p3_link = get_option("bingo_theme_p3_link");
         $p3_img_code = html_entity_decode(stripslashes(get_option("bingo_theme_p3_img_code")));
@@ -92,6 +103,15 @@ function theme_settings_page()
                 <input type="submit" value="ذخیره تنظیمات" class="button-primary"/>
             </p>
             <table class="form-table" style="width: 90%;">
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="p1_id">آی دی محصول اول:</label>
+                    </th>
+                    <td>
+                        <input type="text" name="p1_id" id="p1_id" value="<?= $p1_id ?>" style="width: 100%;"/>
+                    </td>
+                </tr>
+                <?php /*
                 <tr valign="top">
                     <th scope="row">
                         <label for="p1_title">عنوان محصول اول:</label>
@@ -108,6 +128,7 @@ function theme_settings_page()
                         <input type="text" name="p1_link" value="<?= $p1_link ?>" id="p1_link" style="width: 100%;"/>
                     </td>
                 </tr>
+                */ ?>
                 <tr valign="top">
                     <th scope="row">
                         <label for="p1_img_code"> کد تصویر محصول اول:</label>
@@ -119,6 +140,15 @@ function theme_settings_page()
             </table>
             <hr>
             <table class="form-table" style="width: 90%;">
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="p2_id">آی دی محصول دوم:</label>
+                    </th>
+                    <td>
+                        <input type="text" name="p2_id" id="p2_id" value="<?= $p2_id ?>" style="width: 100%;"/>
+                    </td>
+                </tr>
+                <?php /*
                 <tr valign="top">
                     <th scope="row">
                         <label for="p2_title">عنوان محصول دوم:</label>
@@ -135,6 +165,7 @@ function theme_settings_page()
                         <input type="text" name="p2_link" id="p2_link" style="width: 100%;" value="<?= $p2_link ?>"/>
                     </td>
                 </tr>
+                */ ?>
                 <tr valign="top">
                     <th scope="row">
                         <label for="p2_img_code"> کد تصویر محصول دوم:</label>
@@ -146,6 +177,15 @@ function theme_settings_page()
             </table>
             <hr>
             <table class="form-table" style="width: 90%;">
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="p3_id">آی دی محصول سوم:</label>
+                    </th>
+                    <td>
+                        <input type="text" name="p3_id" id="p3_id" value="<?= $p3_id ?>" style="width: 100%;"/>
+                    </td>
+                </tr>
+                <?php /*
                 <tr valign="top">
                     <th scope="row">
                         <label for="p3_title">عنوان محصول سوم:</label>
@@ -162,6 +202,7 @@ function theme_settings_page()
                         <input type="text" name="p3_link" id="p3_link" style="width: 100%;" value="<?= $p3_link ?>"/>
                     </td>
                 </tr>
+                */ ?>
                 <tr valign="top">
                     <th scope="row">
                         <label for="p3_img_code"> کد تصویر محصول سوم:</label>
