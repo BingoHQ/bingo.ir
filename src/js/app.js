@@ -40,14 +40,13 @@ window.Bingo = {
             li.setAttribute('data-num', (i + 1).toString());
             ul.appendChild(li);
             li.addEventListener("click", function (event) {
+                items[activeIndex].classList.remove('active');
+                itemsSelector[activeIndex].classList.remove('active');
                 let index = parseInt(event.target.dataset.num);
                 activeIndex = index - 1;
-                slider.querySelector(".slider.img.active").classList.remove('active');
-                slider.querySelector(".slider:nth-child(" + index + ")").classList.add('active');
-                // slider.querySelector(".slider-selector ul li:nth-child("+index+")").classList.add('active');
-                // event.target.classList.add('active');
-                slider.querySelector(".slider-selector ul li.active").classList.remove('active');
-                event.target.classList.add('active');
+
+                items[activeIndex].className += ' active';
+                itemsSelector[activeIndex].className += ' active';
             });
         }
         itemsSelector = document.querySelectorAll(".slider-selector ul li");
