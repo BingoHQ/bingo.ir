@@ -1,0 +1,77 @@
+/*
+Theme Name: Bingo
+Theme URI: http://bingo.ir
+Author: Zarinpal (Amin Keshavarz0
+Author URI: http://zarinpal.com/
+Description:  Bingo website.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: Bingo, Zarinpal
+Text Domain: Bingo
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+@import 'assets/css/styles.css';
+
+header.intro .slider-content h4 {
+    margin-bottom: 0;
+}
+
+header.intro .slider-content p {
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+header nav .logo {
+    float: left;
+    margin-top: 16px;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+header.intro nav .logo {
+    float: left;
+    margin-top: 25px;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+header a.cart-contents {
+    float: right;
+    margin-top: 2px;
+}
+
+header a.cart-contents img {
+    width: 35px;
+}
+
+header a.cart-contents .badge {
+    background: #e12527;
+    color: #fff;
+    padding: 1px 8px;
+    position: relative;
+    left: 50px;
+    top: -23px;
+    text-align: center;
+    font-size: 11px;
+    border-radius: 100%;
+}
+
+header.intro nav .logo {
+    width: inherit;
+}
+
+header.intro a.cart-contents {
+    margin-top: -3px;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: "iransans-per-num", iransans, Helvetica, Geneva, Verdana, sans-serif;
+    font-weight: 300;
+}
+
+.woocommerce form .form-row textarea {
+    height: 17em !important;
+}
