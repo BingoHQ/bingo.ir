@@ -5734,3 +5734,11 @@ header.product nav .logo {
     font-size: inherit;
     font-weight: inherit;
 }
+
+.product_tab {
+    display: none;
+}
+
+.product_tab.active {
+    display: block;
+}

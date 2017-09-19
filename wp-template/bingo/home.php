@@ -15,7 +15,8 @@ get_header('intro'); ?>
                 if ($_product = wc_get_product(get_option("bingo_theme_p3_id"))):
                     ?>
                     <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
-                        <a href="<?= $_product->get_permalink() ?>" class="product-item-in-slider"
+                        <a href="<?= $_product->get_permalink() ?>" id="product_id_<?= $_product->get_id() ?>"
+                           class="product-item-in-slider"
                            data-id="<?= $_product->get_id() ?>">
                             <div class="product-image">
                                 <?= html_entity_decode(stripslashes(get_option("bingo_theme_p3_img_code"))) ?>
@@ -28,7 +29,8 @@ get_header('intro'); ?>
                 if ($_product = wc_get_product(get_option("bingo_theme_p2_id"))):
                     ?>
                     <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
-                        <a href="<?= $_product->get_permalink() ?>" class="product-item-in-slider"
+                        <a href="<?= $_product->get_permalink() ?>" id="product_id_<?= $_product->get_id() ?>"
+                           class="product-item-in-slider"
                            data-id="<?= $_product->get_id() ?>">
                             <div class="product-image">
                                 <?= html_entity_decode(stripslashes(get_option("bingo_theme_p2_img_code"))) ?>
@@ -41,7 +43,8 @@ get_header('intro'); ?>
                 if ($_product = wc_get_product(get_option("bingo_theme_p1_id"))):
                     ?>
                     <div class="col col--md-4 col--sm-4 col--xs-12 text--center">
-                        <a href="<?= $_product->get_permalink() ?>" class="product-item-in-slider"
+                        <a href="<?= $_product->get_permalink() ?>" id="product_id_<?= $_product->get_id() ?>"
+                           class="product-item-in-slider"
                            data-id="<?= $_product->get_id() ?>">
                             <div class="product-image">
                                 <?= html_entity_decode(stripslashes(get_option("bingo_theme_p1_img_code"))); ?>
@@ -53,11 +56,29 @@ get_header('intro'); ?>
             </div>
         </article>
     </section>
+    <div class="product_tabs">
+        <div class="product_tab product_id_content_<?= get_option("bingo_theme_p1_id") ?> active ">
+            <?php
+            global $product_summary;
+            $product_summary = true;
+            echo do_shortcode('[product_page id="' . get_option("bingo_theme_p1_id") . '"]');
+            ?>
+        </div>
+        <div class="product_tab product_id_content_<?= get_option("bingo_theme_p2_id") ?>">
+            <?php echo do_shortcode('[product_page id="' . get_option("bingo_theme_p2_id") . '"]'); ?>
+        </div>
+        <div class="product_tab product_id_content_<?= get_option("bingo_theme_p3_id") ?>">
+            <?php
+            echo do_shortcode('[product_page id="' . get_option("bingo_theme_p3_id") . '"]');
+            unset($product_summary);
+            ?>
+        </div>
+    </div>
     <div class="loading-icon" id="loading-icon">
         <img src="<?= get_template_directory_uri() ?>/assets/img/loading.gif" style="width: 100px; 100px;">
     </div>
     <div id="product-data-container">
-        <?php
+        <?php /*
         $args = array(
             'post_type' => 'product',
             'tax_query' => array(
@@ -115,29 +136,16 @@ get_header('intro'); ?>
         <?php endif;
 
         wp_reset_query(); // Remember to reset
-        ?>
+        */ ?>
     </div>
     <script>
         jQuery("document").ready(function () {
             jQuery(".product-item-in-slider").click(function (event) {
                 event.preventDefault();
-                console.log("Try to load product as ajax request.");
-                var container = jQuery("#product-data-container");
-                var loader = jQuery("#loading-icon");
-                var wp_ajax_url = "<?= get_home_url() ?>/wp-admin/admin-ajax.php";
-                var data = {
-                    action: 'showProduct',
-                    pid: jQuery(this).attr('data-id'),
-                    remove_details: true
-                };
-                loader.css('display', 'block');
-                container.css('display', 'none');
-                jQuery.post(wp_ajax_url, data, function (content) {
-                    container.html(content);
-                    loader.css('display', 'none');
-                    container.css('display', 'block');
-                    console.log("Success ajax request");
-                });
+                var id = jQuery(this).attr('data-id');
+                console.log(jQuery('.product_id_content_' + id));
+                jQuery('.product_tab.active').removeClass('active');
+                jQuery('.product_id_content_' + id).addClass('active');
             });
         });
     </script>

@@ -20,17 +20,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 $product = wc_get_product();
-
-$summary = $_POST['remove_details'] ? true : false;
+$summary = false;
+if ($GLOBALS['product_summary'])
+    $summary = true;
+elseif ($_POST['remove_details'])
+    $summary = true;
 ?>
-
 <section id="sec1">
-    <article>
+    <article class="product_summary_data" id="product_<?= get_the_ID() ?>_content">
         <?php if ($summary) : ?>
             <div class="row">
                 <div class="col col--md-7">
-
-
                     <div class="title english-num"><h3> <?= get_the_title() ?> </h3>
                         <p><?= get_the_excerpt() ?></p><span class="bar"></span></div>
                     <div class="description">
@@ -42,8 +42,6 @@ $summary = $_POST['remove_details'] ? true : false;
                                 بیشتر<span><i
                                             class="fa fa-arrow-left"></i></span></a></div>
                     </div>
-
-
                 </div>
                 <div class="col col--md-5"><img class="sec-picture"
                                                 src="<?= get_the_post_thumbnail_url(get_post(), 'post-normal') ?>"
@@ -76,7 +74,7 @@ $summary = $_POST['remove_details'] ? true : false;
     </article>
 </section>
 <?php if (!$summary) : ?>
-<section class="bg-gray">
+    <section class="bg-gray product_details_sections">
     <article>
         <div class="row">
             <div class="col col--md-12">
@@ -96,4 +94,4 @@ $summary = $_POST['remove_details'] ? true : false;
         </div>
     </article>
 </section>
-<?php endif; ?>
+<?php endif;
