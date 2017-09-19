@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
-get_header( 'intro' ); ?>
+get_header('product'); ?>
     <main class="shop">
         <?php
         $args = array(
@@ -100,6 +100,6 @@ get_header( 'intro' ); ?>
             });
         });
     </script>
-<?php get_footer('intro');
+<?php get_footer();
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */

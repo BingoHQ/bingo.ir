@@ -78,6 +78,9 @@ function theme_settings_page()
 
             $el = ($_POST["bingo_api_post_ticket_address"]);
             update_option("bingo_api_post_ticket_address", $el);
+
+            $el = ($_POST["banner_img_address"]);
+            update_option("banner_img_address", $el);
         }
 
 
@@ -95,6 +98,8 @@ function theme_settings_page()
         $p3_title = get_option("bingo_theme_p3_title");
         $p3_link = get_option("bingo_theme_p3_link");
         $p3_img_code = html_entity_decode(stripslashes(get_option("bingo_theme_p3_img_code")));
+
+        $banner_img_address = get_option('banner_img_address');
 
         $bingo_api_post_ticket_address = get_option("bingo_api_post_ticket_address");
         ?>
@@ -209,6 +214,18 @@ function theme_settings_page()
                     </th>
                     <td>
                         <?php wp_editor($p3_img_code, 'p3_img_code', array('editor_height' => '300px')); ?>
+                    </td>
+                </tr>
+            </table>
+            <hr>
+            <table class="form-table" style="width: 90%;">
+                <tr valign="top">
+                    <th scope="row">
+                        <label for="banner_img_address">آدرس تصویر بنر صفحه محصولات:</label>
+                    </th>
+                    <td>
+                        <input type="text" name="banner_img_address" id="banner_img_address"
+                               style="width: 100%;" value="<?= $banner_img_address ?>"/>
                     </td>
                 </tr>
             </table>
@@ -402,7 +419,7 @@ function contactUsForm()
         $message = urlencode("اطلاعات کپچا صحیح نیست");
     }
 //    die("contact/?status=$status&message=$message");
-    wp_safe_redirect("contact/?status=$status&message=$message");
+    wp_safe_redirect("تماس/?status=$status&message=$message");
 
 }
 

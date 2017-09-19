@@ -43,6 +43,7 @@
         <nav>
             <?php wp_nav_menu(array('theme_location' => 'header-menu', 'container_class' => 'menu')); ?>
             <div class="logo">
+                <div class="sign-up-btn"><a href="#" title="ورود"> ورود یا ثبت نام</a></div>
                 <a href="<?= get_home_url() ?>"> Bingo </a>
             </div>
         </nav>
