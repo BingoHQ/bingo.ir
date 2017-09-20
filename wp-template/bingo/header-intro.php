@@ -14,7 +14,7 @@
     <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
     <![endif]-->
     <link rel="stylesheet" href="<?php echo esc_url( get_stylesheet_uri() ); ?>">
-    <title>بینگو - <?= get_the_title() ?></title>
+    <title>بینگو - <?= get_the_title() ? get_the_title() : 'صفحه اصلی' ?></title>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
