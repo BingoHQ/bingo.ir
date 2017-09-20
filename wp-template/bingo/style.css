@@ -26,16 +26,23 @@ header.intro .slider-content p {
 
 header nav .logo {
     float: left;
-    margin-top: 16px;
+    margin-top: 20px;
     font-size: 25px;
     font-weight: bolder;
 }
 
+header nav .logo a {
+    color: #00b8d4;
+}
 header.intro nav .logo {
     float: left;
     margin-top: 25px;
     font-size: inherit;
     font-weight: inherit;
+}
+
+header.intro nav .logo a {
+    color: inherit;
 }
 
 header a.cart-contents {

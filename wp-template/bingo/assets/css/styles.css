@@ -79,6 +79,22 @@
   /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 }
 
+@font-face {
+    font-family: "MyriadPro-Regular";
+    font-style: normal;
+    font-weight: bold;
+    src: url("../fonts/myriadpro/MyriadPro-Regular.ttf") format("ttf"), url("../fonts/myriadpro/MyriadPro-Regular.woff") format("woff"), url("../fonts/myriadpro/MyriadPro-Regular.eot") format("eot");
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: "MyriadPro-Bold";
+    font-style: normal;
+    font-weight: bold;
+    src: url("../fonts/myriadpro/myriadpro-bold-webfont.ttf") format("ttf"), url("../fonts/myriadpro/myriadpro-bold-webfont.woff") format("woff"), url("../fonts/myriadpro/myriadpro-bold-webfont.eot") format("eot");
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -5741,4 +5757,12 @@ header.product nav .logo {
 
 .product_tab.active {
     display: block;
+}
+
+.product_tabs p, .product_tabs .description {
+    color: #848484;
+}
+
+#sec2 .col--md-4 {
+    margin-top: 35px;
 }
